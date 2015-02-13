@@ -71,8 +71,17 @@ set stamp=%stamp::=%
 set stamp=%stamp: =0%
 ::get file type to search
 set /p type=Search type: 
-echo | dir /s c:\*.%type% > "All %type% files INFO - %stamp%.txt" | more
-echo | dir /b /s c:\*.%type% > "All %type% files NAME - %stamp%.txt" | more
+::loop to check every drive
+for %%d in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
+if not exist %%d:\nul (
+echo %%d:\ drive is not connected
+)
+if exist %%d:\nul (
+echo checking %%d:\ now
+echo | dir /s %%d:\*.%type% >> "All %type% files INFO - %stamp%.txt" | more
+echo | dir /b /s %%d:\*.%type% >> "All %type% files NAME - %stamp%.txt" | more
+)
+)
 goto menu
 :f4
 ::######################################################
@@ -89,8 +98,7 @@ for %%d in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
 if not exist %%d:\nul (
 echo %%d:\ drive is not connected
 )
-pause
-if exist %%:\nul (
+if exist %%d:\nul (
 echo checking %%d:\ now
 echo | dir /b /s %%d:\%name%.* >> "All %name% files - %stamp%.txt" | more
 )
@@ -102,3 +110,4 @@ goto menu
 :quit
 echo.
 echo Goodbye...
+timeout 3 > nul
