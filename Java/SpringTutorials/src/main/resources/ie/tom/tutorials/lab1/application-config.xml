@@ -11,7 +11,7 @@
 	</bean>
 	<bean id="sonnet29" class="ie.tom.tutorials.lab1.Sonnet29" />
 	<bean id="jenny" class="ie.tom.tutorials.lab1.PoeticJuggler">
-		<constructor-arg value="5" />
+		<constructor-arg value="6" />
 		<constructor-arg ref="sonnet29" />
 	</bean>
 </beans>
