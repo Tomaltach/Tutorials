@@ -72,7 +72,7 @@
 	    <dependency>
       		<groupId>junit</groupId>
       		<artifactId>junit</artifactId>
-      		<version>3.8.1</version>
+      		<version>4.12</version>
       		<scope>test</scope>
     	</dependency>
     	<!-- commons logging repo -->
@@ -81,5 +81,11 @@
 			<artifactId>commons-logging</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<!-- hsqldb repo -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.3.2</version>
+		</dependency>		
   </dependencies>
 </project>

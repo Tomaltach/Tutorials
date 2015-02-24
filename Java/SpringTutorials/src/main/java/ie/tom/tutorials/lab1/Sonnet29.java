@@ -1,5 +1,8 @@
 package ie.tom.tutorials.lab1;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Sonnet29 implements Poem {
 	private final static String[] LINES = {
 		"When, in disgrace with fortune and men's eyes,",
