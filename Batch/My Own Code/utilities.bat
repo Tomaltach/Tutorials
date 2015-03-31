@@ -14,6 +14,8 @@ echo # 2. List files in chosen directory.    #
 echo # 3. List files with type.              #
 echo # 4. List files with name.              #
 echo # 5. Test ipconfig.                     #
+echo # 6. Get Serial Number.                 #
+echo # 7. Get Serial Number All.             #
 echo #                                       #
 echo # q. Quit                               #
 echo #                                       #
@@ -26,6 +28,8 @@ if %udefine%==2 goto f2
 if %udefine%==3 goto f3
 if %udefine%==4 goto f4
 if %udefine%==5 goto f5
+if %udefine%==6 goto f6
+if %udefine%==7 goto f7
 if %udefine%==q goto quit
 :f1
 cls
@@ -106,6 +110,19 @@ echo | dir /b /s %%d:\%name%.* >> "All %name% files - %stamp%.txt" | more
 goto menu
 :f5
 call ipconfig.bat
+goto menu
+:f6
+set /p comname=Enter computer name: 
+if %udefine%==q goto menu
+echo %comname% >> SerialNumber.txt
+echo | wmic /user:%username% /password:%password% /node:'%comname%' bios get serialnumber >> SerialNumber.txt
+echo. >> SerialNumber.txt
+goto f6
+:f7
+for /L %%i in (1,1,255) do (
+echo 10.6.16.%%i >> SerialNumber.txt
+echo | wmic /node:10.6.16.%%i bios get serialnumber >> SerialNumber.txt
+)
 goto menu
 :quit
 echo.
