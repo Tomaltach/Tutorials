@@ -11,19 +11,20 @@
 		$numrows = mysql_num_rows($query);
 		if($numrows != 0) {
 			$row = mysql_fetch_assoc($query);
+			$dbfullname = $row['fullname'];
 			$dbusername = $row['username'];
 			$dbpassword = $row['password'];
 			// check to see that they match
-			if($username == $dbusername && $password == $dbpassword) {
+			if($username == $dbusername && md5($password) == $dbpassword) {
 				echo "You're in! Click <a href='member.php'>here</a> to enter the member page.";
-				$_SESSION['username']=$username;
+				$_SESSION['fullname']=$dbfullname;
 			} else {
-				die("Incorrect password!");
+				die("Incorrect password! <a href='../index.php'><b>Login</b></a>");
 			}
 		} else {
-			die("That user doen't exist!");
+			die("That user doen't exist! <a href='../index.php'><b>Login</b></a>");
 		}
 	} else {
-		die("Please enter a username and password!");
+		die("Please enter a username and password! <a href='../index.php'><b>Login</b></a>");
 	}	
 ?>
