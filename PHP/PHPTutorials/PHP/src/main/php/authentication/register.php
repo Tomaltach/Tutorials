@@ -49,13 +49,19 @@
 							$password = md5($password);
 							$retype_password = md5($retype_password);
 							//open database
-							$connect = mysql_connect("localhost","root","");
-							mysql_select_db("phptutorials");
-							$query = mysql_query(
-								"INSERT INTO users VALUES('','$fullname','$username','$password','$date')"
-							);
+							$connect = mysql_connect("localhost","root","") or die("Couldn't connect");
+							mysql_select_db("phptutorials") or die("Couldn't find Database");
+							$rowquery = mysql_query("SELECT * FROM users WHERE username='$username'");
+							$numrows = mysql_num_rows($rowquery);					
+							if($numrows != 0) {
+								$unerror = "User already exists!";
+							} else {
+								$query = mysql_query(
+									"INSERT INTO users VALUES('','$fullname','$username','$password','$date')"
+								);
+								die("You have been registered. Click <a href='../index.php'>here</a>!");
+							}
 							
-							die("You have been registered. Click <a href='../index.php'>here</a>!");
 						}
 					}
 				} else {
@@ -93,7 +99,7 @@
 					<TD><?php echo $rperror; ?></TD>
 				</TR>
 				<TR>
-					<TD><INPUT type="submit" value='Log In!' name='login' onclick="this.form.action='index.php'"></TD>
+					<TD><INPUT type="submit" value='Log In!' name='login' onclick="this.form.action='../index.php'"></TD>
 					<TD>
 						<INPUT type="submit" value='Register!' name='register' onclick="this.form.action='register.php'"</TD>
 				</TR>
