@@ -26,6 +26,11 @@
 			echo "<BR /><BR />".$dbfullname;
 			echo "<BR />".$dbusername;
 			echo "<BR />".$dbdate."<BR />";
+			
+			if($dbusername == "admin#") {
+				echo "<BR />Dynamic websites - <a href='../dynamicwebsites/fakegoogle.php'>My Google</a><BR />";
+			}
+			
 		} else {
 			die("ERROR!");
 		}

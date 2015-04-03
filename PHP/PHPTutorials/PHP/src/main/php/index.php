@@ -1,6 +1,6 @@
 <HTML>
 	<HEAD>
-		<TITLE>Register</TITLE>
+		<TITLE>Login</TITLE>
 	</HEAD>
 	<BODY>
 		<H1>Login</H1>
