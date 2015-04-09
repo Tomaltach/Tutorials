@@ -6,7 +6,7 @@
 	<BODY>
 		<BR />
 		<DIV align="center">
-			You serached for: <?php print($_POST["q2"]);?>
+			You searched for: <?php print($_POST["q2"]);?>
 		</DIV>
 	</BODY>
 </HTML>

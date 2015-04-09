@@ -1,23 +1,24 @@
 <?php
+	error_reporting(E_ALL);
+	ini_set("display_errors", TRUE);
+	
 	session_start();
 	
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	
 	if($username && $password) {
-		$connect = mysql_connect("localhost","root","") or die("Couldn't connect");
-		mysql_select_db("phptutorials") or die("Couldn't find Database");
-		$query = mysql_query("SELECT * FROM users WHERE username='$username'");
-		$numrows = mysql_num_rows($query);
+		$connect = mysqli_connect("localhost","root","") or die("Couldn't connect");
+		mysqli_select_db($connect, "test_site") or die("Couldn't find Database");
+		$query = mysqli_query($connect, "SELECT * FROM users WHERE username='$username'");
+		$numrows = mysqli_num_rows($query);
 		if($numrows != 0) {
-			$row = mysql_fetch_assoc($query);
-			$dbfullname = $row['fullname'];
+			$row = mysqli_fetch_assoc($query);
 			$dbusername = $row['username'];
 			$dbpassword = $row['password'];
 			// check to see that they match
-			if($username == $dbusername && md5($password) == $dbpassword) {
+			if($username == $dbusername && $password == $dbpassword) {
 				echo "You're in! Click <a href='member.php'>here</a> to enter the member page.";
-				$_SESSION['fullname']=$dbfullname;
 				$_SESSION['username']=$dbusername;
 			} else {
 				die("Incorrect password! <a href='../index.php'><b>Login</b></a>");

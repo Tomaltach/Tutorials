@@ -7,7 +7,7 @@
 		<BR />
 		<H1>GOOGLE.COM</H1>
 		<DIV align="center">
-			<FORM action="http://www.google.com/search" method="post">
+			<FORM action="http://www.google.com/search" method="get">
 				<INPUT name="q" type="text" />
 				<BR />
 				<INPUT name="btnG" type="submit" value="Fake Search" />

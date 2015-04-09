@@ -1,8 +1,4 @@
 <?php
-/*
- * Created on 9 Apr 2015
- *
- * To change the template for this generated file go to
- * Window - Preferences - PHPeclipse - PHP - Code Templates
- */
+	error_reporting(E_ALL);
+	ini_set("display_errors", TRUE);
 ?>
