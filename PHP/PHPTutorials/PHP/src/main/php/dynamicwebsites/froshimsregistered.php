@@ -18,7 +18,11 @@
 				<B>Captain:</B> YES!
 			<?php endif ?>
 			<BR />
-			<B>Team:</B> <?= $_GET["teams"] ?>
+			<?php if($_GET["teams"] == "?"): ?>
+				<B>Team:</B> NO TEAM SELECTED!
+			<?php else: ?>
+				<B>Team:</B> <?= $_GET["teams"] ?>
+			<?php endif ?>
 		</DIV>
 	</BODY>
 </HTML>
