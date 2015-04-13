@@ -19,7 +19,8 @@
 					<TD><INPUT type="submit" value='Log In!' onclick="this.form.action='authentication/login.php'"></TD>
 				</TR>
 			</TABLE>
-			
+			<BR /><BR />
+			<INPUT type="submit" value='Site' onclick="this.form.action='site/index.php'">			
 		</FORM>
 	</BODY>
 </HTML>

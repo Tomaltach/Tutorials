@@ -24,7 +24,6 @@
 					<TD><INPUT type="submit" value='Log In!' onclick="this.form.action='authentication/login.php'"></TD>
 				</TR>
 			</TABLE>
-			
 		</FORM>
 	</BODY>
 </HTML>
