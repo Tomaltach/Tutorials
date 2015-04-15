@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<lectures>
+    <lecture number="0">
+        <title>HTTP</title>
+        <dates>Monday, 13 April 2015</dates>
+        <resources>
+            <resource name="Slides">
+                <format path="lec.php" label="PDF" />
+            </resource>
+            <resource name="Video">
+                <format path="https://www.youtube.com/watch?v=h2Nq0qv0K8M" label="Youtube" />
+            </resource>
+        </resources>
+    </lecture>
+    <lecture number="1">
+        <title>PHP</title>
+        <dates>Monday, 13 April 2015</dates>
+        <resources>
+            <resource name="Slides">
+                <format path="lec.php" label="PDF" />
+            </resource>
+            <resource name="Video">
+                <format path="https://www.youtube.com/watch?v=h2Nq0qv0K8M" label="Youtube" />
+            </resource>
+        </resources>
+    </lecture>
+</lectures>
